@@ -8,7 +8,6 @@ import {
   GraduationCap,
   Users,
   Briefcase,
-  UserPlus,
   Contact,
   GitPullRequest,
   Inbox,
@@ -62,7 +61,6 @@ export const SUPER_MODULES: SuperModule[] = [
       { id: "staff-directory", name: "Staff Directory", icon: Contact },
       { id: "hiring-drive", name: "Hiring Drives", icon: UserSearch },
       { id: "applicant-pool", name: "Applicant Pool", icon: FolderOpen },
-      { id: "onboarding", name: "Onboarding Desk", icon: UserPlus },
     ],
   },
   {
