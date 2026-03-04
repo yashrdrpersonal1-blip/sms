@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { LayoutGrid, Settings, LogOut, User, Globe, ChevronRight, Check, ShieldCheck } from "lucide-react"
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
 import { Separator } from "@/components/ui/separator"
@@ -25,8 +26,22 @@ const LANGUAGES = [
 
 const USER_NAME = "Alex Johnson"
 
+const SUB_MODULE_ROUTES: Record<string, string> = {
+  campaigns: "/dashboard/crm/campaigns",
+  leads: "/dashboard/crm/leads",
+  students: "/dashboard/students",
+  "staff-directory": "/dashboard/hr/staff",
+  "hiring-drive": "/dashboard/hr/hiring-drives",
+  "applicant-pool": "/dashboard/hr/applicants",
+  onboarding: "/dashboard/hr/onboarding",
+  "my-requests": "/dashboard/workflow/requests",
+  "approval-inbox": "/dashboard/workflow/approvals",
+  "self-service": "/dashboard/workflow/self-service",
+}
+
 export function DashboardSidebar() {
   const { pinnedModuleIds, setMegaMenuOpen } = useMenuStore()
+  const router = useRouter()
 
   const [popoverOpen, setPopoverOpen] = useState(false)
   const [activeRole, setActiveRole] = useState(ROLES[0])
@@ -65,6 +80,10 @@ export function DashboardSidebar() {
                 <button
                   className="flex size-10 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                   aria-label={sub.name}
+                  onClick={() => {
+                    const route = SUB_MODULE_ROUTES[id]
+                    if (route) router.push(route)
+                  }}
                 >
                   <Icon className="size-5" />
                 </button>

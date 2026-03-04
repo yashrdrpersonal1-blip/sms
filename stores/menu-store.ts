@@ -14,6 +14,7 @@ import {
   Inbox,
   LayoutDashboard,
   UserSearch,
+  FolderOpen,
 } from "lucide-react"
 
 // ── Types ──────────────────────────────────────────
@@ -59,7 +60,8 @@ export const SUPER_MODULES: SuperModule[] = [
     color: "text-amber-500",
     subModules: [
       { id: "staff-directory", name: "Staff Directory", icon: Contact },
-      { id: "hiring-drive", name: "Hiring Drive", icon: UserSearch },
+      { id: "hiring-drive", name: "Hiring Drives", icon: UserSearch },
+      { id: "applicant-pool", name: "Applicant Pool", icon: FolderOpen },
       { id: "onboarding", name: "Onboarding Desk", icon: UserPlus },
     ],
   },
@@ -89,7 +91,7 @@ interface MenuState {
 export const useMenuStore = create<MenuState>()(
   persist(
     (set, get) => ({
-      pinnedModuleIds: ["campaigns", "leads", "students", "staff-directory", "my-requests"],
+      pinnedModuleIds: ["campaigns", "leads", "students", "staff-directory", "hiring-drive", "applicant-pool", "my-requests"],
       megaMenuOpen: false,
       searchQuery: "",
       togglePin: (moduleId: string) => {
