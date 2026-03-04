@@ -33,7 +33,6 @@ const SUB_MODULE_ROUTES: Record<string, string> = {
   "staff-directory": "/dashboard/hr/staff",
   "hiring-drive": "/dashboard/hr/hiring-drives",
   "applicant-pool": "/dashboard/hr/applicants",
-  onboarding: "/dashboard/hr/onboarding",
   "my-requests": "/dashboard/workflow/requests",
   "approval-inbox": "/dashboard/workflow/approvals",
   "self-service": "/dashboard/workflow/self-service",
